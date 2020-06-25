@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2019",
+    "noImplicitAny": true,
+    "jsx": "react",
+    "listEmittedFiles": true,
+    "alwaysStrict": true,
+    "incremental": false,
+    "skipLibCheck": true,
+    "checkJs": false,
+    "typeRoots": [
+      "types",
+      "node_modules/@types"
+    ],
+    "types": [
+      "jest"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "*",
+        "types/*",
+        "node_modules/*"
+      ]
+    },
+    "noEmit": true,
+    "newLine": "LF"
+  },
+  "exclude": [
+    "node_modules",
+    "dist/"
+  ],
+  "include": [
+    "src"
+  ]
+}

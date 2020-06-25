@@ -1,0 +1,22 @@
+# Dependency directories and npm logs
+node_modules
+npm-debug.log*
+debug.log
+
+### Visual Studio Code ###
+.vscode/
+
+### Webstorm ###
+.idea/
+
+### Build files ###
+dist/
+
+### Vim temporary files ###
+*~
+*.swp
+*.swo
+
+### MacOS specific directories ###
+.DS_Store
+.DS_Store?
