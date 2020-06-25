@@ -63,7 +63,6 @@ npm run tsc               : check types error with TypeScript
 ## Code structure
 
 ```
-.
 ├─── src                               : source code
 |     ├─── features                    : features (components, models, utils, tests)
 |     |      ─── Example               : feature directory
@@ -86,6 +85,10 @@ npm run tsc               : check types error with TypeScript
 |     ├─── store                       : rematch configuration
 |     |     ├─── constants.ts          : feature constants
 |     |     └─── models.ts             : container for all features
+|     ├─── styles                      : rematch configuration
+|     |     ├─── constants.ts          : style constants
+|     |     ├─── theme.scss            : project theme
+|     |     └─── index.scss            : common project styles
 |     |
 |     ├─── hooks                       : custom hooks
 |     ├─── public                      : static files
