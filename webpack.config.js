@@ -27,6 +27,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
           // Creates `style` nodes from JS strings
           'style-loader',
@@ -36,10 +37,39 @@ module.exports = {
           'sass-loader',
         ],
       },
+      { test: /.css$/, exclude: /src/, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: 'react-svg-loader',
+          query: {
+            es5: true,
+            svgo: { plugins: [{ removeTitle: false }] },
+          },
+        },
+      },
+      {
+        test: /\.(ttf|eot|woff|json|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|mp4)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new CopyPlugin([{ from: 'src/public' }]),
+    // new CopyPlugin([{ from: 'src/assets' }]),
     new HtmlWebpackPlugin({
       template: 'index.html',
       hash: true,
