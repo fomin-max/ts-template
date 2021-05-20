@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "module": "esnext",
     "sourceMap": true,
     "strict": true,
-    "target": "ES2019",
     "noImplicitAny": true,
     "jsx": "react",
     "listEmittedFiles": true,
@@ -14,29 +20,30 @@
     "incremental": false,
     "skipLibCheck": true,
     "checkJs": false,
-    "typeRoots": [
-      "types",
-      "node_modules/@types"
-    ],
-    "types": [
-      "jest"
-    ],
+    "typeRoots": ["types", "node_modules/@types"],
+    "types": ["jest"],
     "baseUrl": "./",
     "paths": {
-      "*": [
-        "*",
-        "types/*",
-        "node_modules/*"
-      ]
+      "*": ["*", "types/*", "node_modules/*"]
     },
     "noEmit": true,
     "newLine": "LF"
   },
   "exclude": [
+    "*/node_modules",
     "node_modules",
-    "dist/"
+    "**/node_modules",
+    "**/node_modules/*"
   ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "experimentalDecorators": true,
+  "allowSyntheticDefaultImports": true,
+  "forceConsistentCasingInFileNames": true,
+  "resolveJsonModule": true,
+  "isolatedModules": true,
+  "strictNullChecks": true,
+  "strictFunctionTypes": true,
+  "noImplicitReturns": false,
+  "noImplicitThis": true,
+  "noFallthroughCasesInSwitch": true
 }

@@ -1,29 +1,16 @@
-import 'core-js'; // Provides polyfills necessary for a full ES2015+ environment
-import { ConnectedRouter } from 'connected-react-router';
-import * as React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import moment from 'moment';
-import './styles/index.scss';
+import * as React from 'react'
+import ReactDOM from 'react-dom'
+import { Router } from 'react-router-dom'
+import './styles/index.scss'
 
-import { App } from './App';
-import { store } from './store';
-import { history } from './store/history';
-import { ErrorBoundary } from './features/Errors';
-
-moment.locale('ru');
-
-store.dispatch.application.initializeApplication();
+import { App } from './App'
+import { history } from './store/history'
 
 window.addEventListener('load', () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <ErrorBoundary>
-          <App />
-        </ErrorBoundary>
-      </ConnectedRouter>
-    </Provider>,
-    document.getElementById('app') || document.querySelectorAll('body')[0],
-  );
-});
+    <Router history={history}>
+      <App />
+    </Router>,
+    document.getElementById('root') || document.querySelectorAll('body')[0],
+  )
+})

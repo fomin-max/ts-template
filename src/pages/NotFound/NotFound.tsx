@@ -1,12 +1,8 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC } from 'react'
 
-import { URLS } from '../../constants';
-
-export default (): React.ReactElement => (
+export const NotFound: FC = () => (
   <div>
     <h1>Not found</h1>
     <p>This page does not exist</p>
-    <Link to={URLS.MAIN}>Go to main page</Link>
   </div>
-);
+)

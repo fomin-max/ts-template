@@ -11,6 +11,7 @@ debug.log
 
 ### Build files ###
 dist/
+build/
 
 ### Vim temporary files ###
 *~
@@ -20,3 +21,7 @@ dist/
 ### MacOS specific directories ###
 .DS_Store
 .DS_Store?
+
+yarn-debug.log*
+yarn-error.log*
+

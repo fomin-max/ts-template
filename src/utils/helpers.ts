@@ -1,7 +1,3 @@
-import fp from 'lodash/fp';
-import moment from 'moment';
+import fp from 'lodash/fp'
 
-export const isNotEmpty = fp.complement(fp.isEmpty);
-
-export const formatDate = (ISODate?: string | Date): string =>
-  (ISODate ? moment(ISODate).format('DD.MM.YYYY') : '');
+export const isNotEmpty = fp.complement(fp.isEmpty)

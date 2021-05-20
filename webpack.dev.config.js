@@ -1,15 +1,38 @@
-/* eslint-disable @typescript-eslint/no-var-requires,import/no-extraneous-dependencies */
-const path = require('path');
-const merge = require('webpack-merge');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
-const commonConfig = require('./webpack.config');
+const path = require('path')
+const { merge } = require('webpack-merge')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+const commonConfig = require('./webpack.config')
 
 module.exports = merge(commonConfig, {
   mode: 'development',
   output: {
-    path: path.resolve('dist'),
-    filename: '[name].[chunkhash].bundle.js',
-    chunkFilename: '[name].[chunkhash].bundle.js',
+    filename: 'static/js/[name]bundle.js',
+    chunkFilename: 'static/js/[name].chunk.js',
+    publicPath: '/',
+    pathinfo: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     new CircularDependencyPlugin({
@@ -27,16 +50,18 @@ module.exports = merge(commonConfig, {
   devtool: 'cheap-module-source-map',
   devServer: {
     https: true,
-    port: 8551,
+    port: 8787,
+    historyApiFallback: true,
+    hot: true,
     open: true,
     overlay: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8300',
+        target: process.env.REACT_APP_BACKEND_URL,
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     },
     contentBase: path.resolve('dist'),
   },
-});
+})
