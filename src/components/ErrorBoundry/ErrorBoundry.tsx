@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AppError } from './AppError'
+import { ErrorPage } from './ErrorPage'
 
 interface IErrorBoundaryProps {
   children: React.ReactNode
@@ -34,8 +34,8 @@ export class ErrorBoundary extends React.Component<
     const { children } = this.props
     const { hasError } = this.state
 
-    if (hasError && process.env.NODE_ENV === 'production') {
-      return <AppError />
+    if (hasError) {
+      return <ErrorPage />
     }
 
     return children

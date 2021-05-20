@@ -1,3 +1,3 @@
-export const log = <T>(data: T, ...rest: unknown[]): void => {
-  console.log(data, ...rest) // eslint-disable-line no-console
+export const log = (rest: unknown[]): void => {
+  console.log(rest) // eslint-disable-line no-console
 }
