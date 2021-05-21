@@ -1,10 +1,11 @@
 import React, { FC, Suspense } from 'react'
-import { Redirect, Router, Switch } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
 import { Route, RouteProps } from 'react-router'
 import { observer } from 'mobx-react-lite'
 import { createBrowserHistory } from 'history'
 
 import { NotFound } from '../../pages/NotFound/NotFound'
+import { Home } from '../../pages/Home/Home'
 import { IProtectedRoute, ProtectedRoute } from './ProtectedRoute'
 import { URLS } from '../../utils'
 
@@ -20,7 +21,7 @@ const publicRoutes: RouteProps[] = [
   },
   {
     path: URLS.HOME,
-    component: NotFound,
+    component: Home,
     exact: true,
   },
 ]
@@ -40,7 +41,7 @@ export const AppRouter: FC = observer(() => (
           />
         ))}
 
-        <Redirect to={URLS.NOT_FOUND} />
+        <Route key={URLS.NOT_FOUND} component={NotFound} />
       </Switch>
     </Suspense>
   </Router>

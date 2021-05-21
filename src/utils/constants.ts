@@ -1,4 +1,4 @@
 export const URLS = {
-  HOME: '/home',
+  HOME: '/',
   NOT_FOUND: '/404',
 }
